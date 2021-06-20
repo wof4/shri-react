@@ -27,7 +27,7 @@ const GetForm = () => {
           repository: '',
           command: '',
           branch: 'master |',
-          time: 10,
+          time: 0,
         }}
         onSubmit={() => {
 
@@ -173,8 +173,15 @@ errors.branch && touched.branch
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values.time}
-                      className={s.form_input}
+                      className={
+errors.time && touched.time
+  ? s.form_input_error
+  : s.form_input
+}
                     />
+                    {touched.time && errors.time && (
+                    <div className={s.error}>{errors.time}</div>
+                    )}
                   </label>
                   <div className={s.form__input_title}>minutes</div>
                 </div>

@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+#### Вам нужно написать компоненты интерфейса для учебного проекта — CI сервера. В результате должно получиться ui для клиентского приложение на React, соответствующий макетам. Проект должен запускаться одной командой, например npm start. В приложении должны открываться страницы, указанные ниже
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Адреса страниц:
+```
+список билдов /  (корневой адрес приложения)
+```
+```
+детали билда /build/{number} 
+```
+```
+настройки /settings 
+```
 
-## Available Scripts
+#### В рамках этого задания нужно сделать только компоненты интерфейса. Для их отображения можно использовать заглушки с тестовыми данными. Логику предметной области (обращение к серверу и перехода между страницами) делать не нужно.
+На странице настроек нужно сделать клиентскую валидацию полей ввода:
+репозиторий — обязательное поле;
+команда сборки — обязательное поле;
+в поле "период" — число (вместо валидации можно сделать маску для инпута и разрешать вводить только числа).
 
-In the project directory, you can run:
 
-### `npm start`
+### Локально приложение запускается командой  'npm start' 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+для запуска локально,склонировать репозиторий и проинсталить зависимости
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+# Локально
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+список билдов доступен по ссылке -- "http://localhost:3000/shri-react#/build"
+или просто -- "http://localhost:3000/shri-react#/"
 
-### `npm run build`
+детали билда доступны по ссылке --  "http://localhost:3000/shri-react#/details"
+настройки доступны по ссылке --  "http://localhost:3000/shri-react#/setting"
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# gh-pages 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+список билдов доступен по ссылке -- https://wof4.github.io/shri-react/#/build или просто --https://wof4.github.io/shri-react/#/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+детали билда доступны по ссылке --https://wof4.github.io/shri-react/#/details
+настройки доступны по ссылке --https://wof4.github.io/shri-react/#/setting
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+В дальнейшем планирую немного улучшить архитектуру приложения.Раскидать CSS по файлам для более удобной работы.Разложить функции на части,например GetForm и сделать ее более универсальной.т.к получилась партянка(
