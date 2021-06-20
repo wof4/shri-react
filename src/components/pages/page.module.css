@@ -1,0 +1,23 @@
+.page_wrapper {
+    max-width: 824px;
+    height: 100%;
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+
+@media screen and (max-width: 668px) {
+
+    .page_wrapper {
+        width: 90%;
+    }
+    }
