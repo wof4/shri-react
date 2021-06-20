@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/shri-react/static/css/main.5189f62a.chunk.css",
-    "main.js": "/shri-react/static/js/main.f74c67fd.chunk.js",
-    "main.js.map": "/shri-react/static/js/main.f74c67fd.chunk.js.map",
+    "main.js": "/shri-react/static/js/main.42e2d963.chunk.js",
+    "main.js.map": "/shri-react/static/js/main.42e2d963.chunk.js.map",
     "runtime-main.js": "/shri-react/static/js/runtime-main.d9f60dff.js",
     "runtime-main.js.map": "/shri-react/static/js/runtime-main.d9f60dff.js.map",
-    "static/js/2.2dd5401c.chunk.js": "/shri-react/static/js/2.2dd5401c.chunk.js",
-    "static/js/2.2dd5401c.chunk.js.map": "/shri-react/static/js/2.2dd5401c.chunk.js.map",
+    "static/js/2.aae08eec.chunk.js": "/shri-react/static/js/2.aae08eec.chunk.js",
+    "static/js/2.aae08eec.chunk.js.map": "/shri-react/static/js/2.aae08eec.chunk.js.map",
     "index.html": "/shri-react/index.html",
     "static/css/main.5189f62a.chunk.css.map": "/shri-react/static/css/main.5189f62a.chunk.css.map",
-    "static/js/2.2dd5401c.chunk.js.LICENSE.txt": "/shri-react/static/js/2.2dd5401c.chunk.js.LICENSE.txt"
+    "static/js/2.aae08eec.chunk.js.LICENSE.txt": "/shri-react/static/js/2.aae08eec.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d9f60dff.js",
-    "static/js/2.2dd5401c.chunk.js",
+    "static/js/2.aae08eec.chunk.js",
     "static/css/main.5189f62a.chunk.css",
-    "static/js/main.f74c67fd.chunk.js"
+    "static/js/main.42e2d963.chunk.js"
   ]
 }
