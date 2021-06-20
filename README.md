@@ -26,10 +26,23 @@
 # Локально
 
 список билдов доступен по ссылке -- "http://localhost:3000/shri-react#/build"
+
+
+
 или просто -- "http://localhost:3000/shri-react#/"
 
+
+
+
 детали билда доступны по ссылке --  "http://localhost:3000/shri-react#/details"
+
+
+
+
 настройки доступны по ссылке --  "http://localhost:3000/shri-react#/setting"
+
+
+
 
 # gh-pages 
 
