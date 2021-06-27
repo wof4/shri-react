@@ -1,12 +1,15 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import buildHistoryReducer from './buildHistoryReducer';
-import buildSettingsReucer from './buildSettingsReucer';
+import settingsReducer from './settingsReducer';
+import buildDatailsReducer from './buildDatailsReducer';
 
 const reducers = combineReducers({
   buildHistoryReducer,
-  buildSettingsReucer,
+  settingsReducer,
+  buildDatailsReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+window.store = store;
 export default store;

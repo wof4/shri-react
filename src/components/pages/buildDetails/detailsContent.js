@@ -7,7 +7,7 @@ const DetailsContent = (props) => {
   return (
     <div className={s.details}>
       <div>
-        <Card {...contentData[0]} shouldDirectionColumn />
+        <Card {...contentData} shouldDirectionColumn />
       </div>
       <div className={s.details__logs}>
         <div className={s.details__log_content}>

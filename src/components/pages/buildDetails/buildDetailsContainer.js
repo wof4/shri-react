@@ -1,16 +1,17 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getHistoryContentData, getRepoName } from '../../../selectors';
+import { getCurentBuildData, getRepoName } from '../../../selectors';
 import Header from '../../pagesComponents/header/header';
 import s from '../page.module.css';
 import DetailsContent from './detailsContent';
 
 const BuildDetailsContainer = () => {
-  const contentData = useSelector(getHistoryContentData);
+  const contentData = useSelector(getCurentBuildData);
   const repoName = useSelector(getRepoName);
   const ComandButtonText = 'Rebuild';
   const ComandButtonIcon = 'rebuild';
   const settingIcon = 'settingIcon';
+  console.log('contentData', contentData);
   return (
     <div className={s.page_wrapper}>
       <div className={s.page__content}>

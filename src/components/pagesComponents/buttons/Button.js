@@ -5,7 +5,7 @@ import buildIcon from '../../../icons/build.png';
 import rebuild from '../../../icons/rebuild.png';
 
 const Button = (props) => {
-  const { icon, text } = props;
+  const { icon, text, handleClick } = props;
 
   const icons = {
     settingIcon,
@@ -16,21 +16,14 @@ const Button = (props) => {
   return (
     <div
       // eslint-disable-next-line no-console
-      onClick={() => { console.log(props.text || props.icon); }}
+      onClick={() => {
+        handleClick(props.icon);
+      }}
       className={s.button}
       role="presentation"
     >
-      <div className={s.button__icon}>
-        {icon ? <img src={icons[icon]} alt="icon" /> : null}
-      </div>
-      {text
-        ? (
-          <div className={icon
-            ? s.button__header_text : s.button__text}
-          >
-            {text}
-          </div>
-        ) : null}
+      <div className={s.button__icon}>{icon ? <img src={icons[icon]} alt="icon" /> : null}</div>
+      {text ? <div className={icon ? s.button__header_text : s.button__text}>{text}</div> : null}
     </div>
   );
 };

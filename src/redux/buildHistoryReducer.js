@@ -1,54 +1,81 @@
+import buildsApi from '../api/apiBuilds';
+
 const initialState = {
   buildListData: [
     {
-      id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-      configurationId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-      buildNumber: 1368,
-      commitMessage: 'add documentation for postgres scaler',
-      commitHash: '9c9f0b9',
-      branchName: 'master',
-      authorName: 'Philip Kirkorov',
-      status: 'Waiting',
-      start: '2021-06-17T11:40:38.405Z',
-      duration: 0,
-    },
-    {
-      id: '3fa85f64-5717-4562-b3fc-2c963f66afa7',
-      configurationId: '3fa85f64-5717-4562-b3fc-2c963f66afa7',
-      buildNumber: 1367,
-      commitMessage: 'add documentation for postgres',
-      commitHash: '9c9f0b8',
-      branchName: 'master',
-      authorName: 'Vasya Kirkorov',
-      status: 'Waiting',
-      start: '2021-06-17T11:40:38.405Z',
-      duration: 2,
+      authorName: '',
+      branchName: '',
+      buildNumber: 0,
+      commitHash: '',
+      commitMessage: '',
+      configurationId: '',
+      id: '',
+      status: '',
     },
   ],
-  confData: {
-    id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
-    repoName: 'philip1967/my-awesome-repo',
-    buildCommand: 'Run build',
-    mainBranch: 'string',
-    period: 0,
+  ui: {
+    isShowBuildForm: false, // показывать ли модальное окно
+    isShowLoader: false, // svg loader При загрузке контента
+    isAddNewBuild: false, // был ли добавлен новый билд
   },
 };
 
 const buildHistoryReducer = (state = initialState, action) => {
   switch (action.type) {
-    case '': {
-      return {
-        ...state,
-      };
+    case 'IS_SHOW_BUILD_FORM': {
+      return { ...state, ui: { ...state.ui, isShowBuildForm: action.payload } };
     }
-    default: {
-      return state;
+    case 'SHOW_LOADER': {
+      return { ...state, ui: { ...state.ui, isShowLoader: action.payload } };
     }
+    case 'IS_ADD_NEW_BUILD': {
+      return { ...state, ui: { ...state.ui, isAddNewBuild: action.payload } };
+    }
+    case 'SET_BUILD_LIST_DATA': {
+      return { ...state, buildListData: action.payload };
+    }
+    default: { return state; }
   }
 };
 
 export const actions = {
+  isShowBuildForm: (payload) => ({ type: 'IS_SHOW_BUILD_FORM', payload }),
+  addNewBuild: (payload) => ({ type: 'IS_ADD_NEW_BUILD', payload }),
+  showLoader: (payload) => ({ type: 'SHOW_LOADER', payload }),
+  setBuildListData: (payload) => ({ type: 'SET_BUILD_LIST_DATA', payload }),
+};
 
+export const getBuildsTc = (storeConfig) => (dispatch) => {
+  dispatch(actions.showLoader(true));
+  if (storeConfig === true) {
+    buildsApi.getBuildsList()
+      .then((response) => {
+        if (response.statusText === 'OK') {
+          console.log({ 'пришли билды': response.data.data });
+          dispatch(actions.setBuildListData(response.data.data));
+        } else {
+          console.log('неудача загрузки билд листа');
+        }
+      });
+  } else {
+    console.log('в сторе настроек нет ненужно делать запрос за билдами');
+  }
+  dispatch(actions.showLoader(false));
+};
+
+export const setNewBuildTc = (commitHash) => (dispatch) => {
+  console.log(commitHash);
+  buildsApi.postNewBuild(commitHash)
+    .then((response) => {
+      if (response.data.data.buildNumber && response.data.data.id && response.data.data.status) {
+        dispatch(getBuildsTc(true));
+        dispatch(actions.addNewBuild(true));
+        dispatch(actions.isShowBuildForm(false));
+        dispatch(actions.addNewBuild(false));
+      } else {
+        console.log('в данном репозитории комит отсутствует');
+      }
+    });
 };
 
 export default buildHistoryReducer;

@@ -4,7 +4,6 @@ import Card from '../../pagesComponents/card/Card';
 
 const HistoryContent = (props) => {
   const { contentData } = props;
-  // const style = 'true';
   return (
     <div>
       {contentData.map((data) => (

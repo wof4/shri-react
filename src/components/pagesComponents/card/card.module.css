@@ -8,6 +8,9 @@
     border-radius: 6px;
     margin-bottom: 8px;
 }
+.card__container:hover {
+    box-shadow: 0px 0px 2px rgb(67 68 69 / 30%), 4px 4px 4px rgb(67 68 69 / 30%);
+}
 
 .card__container_direction_column {
     flex-direction: column;
